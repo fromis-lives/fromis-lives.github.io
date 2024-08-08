@@ -1,123 +1,145 @@
 <!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <html lang="en">
+
 <head>
   <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
   <title>fromis_9 Lives</title>
-  <script src="https://cdn.anychart.com/releases/8.12.1/js/anychart-base.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
-  <script src="https://cdn.anychart.com/releases/8.12.1/js/anychart-calendar.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
-  <script src="https://cdn.anychart.com/releases/8.12.1/js/anychart-exports.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
-  <script src="https://cdn.anychart.com/releases/8.12.1/js/anychart-ui.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+  <script
+    src="https://cdn.anychart.com/releases/8.12.1/js/anychart-base.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+  <script
+    src="https://cdn.anychart.com/releases/8.12.1/js/anychart-calendar.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+  <script
+    src="https://cdn.anychart.com/releases/8.12.1/js/anychart-exports.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+  <script
+    src="https://cdn.anychart.com/releases/8.12.1/js/anychart-ui.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
   <script src="js/data.js"></script>
 </head>
 
- <body>
+<body>
   <div id="body_container">
-  <div id="main_container">
-    <div id="header_container">
-      <div id="change_lang_div">
-        <span id="lang_select_kr" onclick="changeLocale('kr')">KR</span>
-        <span> / </span>
-        <span id="lang_select_en" onclick="changeLocale('en')">EN</span>
+    <div id="main_container">
+      <div id="header_container">
+        <div id="change_lang_div">
+          <span id="lang_select_kr" onclick="changeLocale('kr')">KR</span>
+          <span> / </span>
+          <span id="lang_select_en" onclick="changeLocale('en')">EN</span>
+        </div>
+        <div id="last_updated_div">
+          <span data-i18n-key="last_updated">Last updated</span><span>: </span><span id="last_updated"></span>
+        </div>
       </div>
-      <div id="last_updated_div">
-        <span data-i18n-key="last_updated">Last updated</span><span>: </span><span id="last_updated"></span>
+      <div id="title">
+        <span id="liveFilters" onclick="toggleFilter()">Filters</span>
+        <span>fromis_9 Lives Tracker</span>
+        <div id="filter_container" class="hidden">
+          <div id="filter_members" class="filter_div">
+            <span id="members_prefix"><span data-i18n-key="members">Members</span>:</span>
+            <label>
+              <input type="checkbox" id="saerom_box" name="saerom_box" value="Saerom" class="member_check"
+                onchange="updateChart()" checked>
+              <span data-i18n-key="saerom">Saerom</span>
+            </label>
+            <span class="horizontal_separator"> | </span>
+            <label>
+              <input type="checkbox" id="hayoung_box" name="hayoung_box" value="Hayoung" class="member_check"
+                onchange="updateChart()" checked>
+              <span data-i18n-key="hayoung">Hayoung</span>
+            </label>
+            <span class="horizontal_separator"> | </span>
+            <label>
+              <input type="checkbox" id="gyuri_box" name="gyuri_box" value="Gyuri" class="member_check"
+                onchange="updateChart()" checked>
+              <span data-i18n-key="gyuri">Gyuri</span>
+            </label>
+            <span class="horizontal_separator"> | </span>
+            <label>
+              <input type="checkbox" id="jiwon_box" name="jiwon_box" value="Jiwon" class="member_check"
+                onchange="updateChart()" checked>
+              <span data-i18n-key="jiwon">Jiwon</span>
+            </label>
+            <span class="horizontal_separator"> | </span>
+            <label>
+              <input type="checkbox" id="jisun_box" name="jisun_box" value="Jisun" class="member_check"
+                onchange="updateChart()" checked>
+              <span data-i18n-key="jisun">Jisun</span>
+            </label>
+            <span class="horizontal_separator"> | </span>
+            <label>
+              <input type="checkbox" id="seoyeon_box" name="seoyeon_box" value="Seoyeon" class="member_check"
+                onchange="updateChart()" checked>
+              <span data-i18n-key="seoyeon">Seoyeon</span>
+            </label>
+            <span class="horizontal_separator"> | </span>
+            <label>
+              <input type="checkbox" id="chaeyoung_box" name="chaeyoung_box" value="Chaeyoung" class="member_check"
+                onchange="updateChart()" checked>
+              <span data-i18n-key="chaeyoung">Chaeyoung</span>
+            </label>
+            <span class="horizontal_separator"> | </span>
+            <label>
+              <input type="checkbox" id="nagyung_box" name="nagyung_box" value="Nagyung" class="member_check"
+                onchange="updateChart()" checked>
+              <span data-i18n-key="nagyung">Nagyung</span>
+            </label>
+            <span class="horizontal_separator"> | </span>
+            <label>
+              <input type="checkbox" id="jiheon_box" name="jiheon_box" value="Jiheon" class="member_check"
+                onchange="updateChart()" checked>
+              <span data-i18n-key="jiheon">Jiheon</span>
+            </label>
+          </div>
+          <div id="filter_float">
+            <div id="filter_membership" class="filter_div">
+              <span data-i18n-key="membership_filter">Subs</span>:
+              <label>
+                <input type="checkbox" id="membership_yes" name="membership_yes_box" value="Yes"
+                  class="membership_check" onchange="updateChart()" checked />
+                <span data-i18n-key="membership_yes">Yes</span>
+              </label>
+              <span class="horizontal_separator"> | </span>
+              <label>
+                <input type="checkbox" id="membership_no" name="membership_no_box" value="No" class="membership_check"
+                  onchange="updateChart()" checked />
+                <span data-i18n-key="membership_no">No</span>
+              </label>
+            </div>
+            <div id="filter_subs" class="filter_div">
+              <span data-i18n-key="subs_filter">Subs</span>:
+              <label>
+                <input type="checkbox" id="subs_yes" name="subs_yes_box" value="Yes" class="subs_check"
+                  onchange="updateChart()" checked />
+                <span data-i18n-key="membership_yes">Yes</span>
+              </label>
+              <span class="horizontal_separator"> | </span>
+              <label>
+                <input type="checkbox" id="subs_no" name="subs_no_box" value="No" class="subs_check"
+                  onchange="updateChart()" checked />
+                <span data-i18n-key="membership_no">No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="separator" />
+      <div id='container_chart' onclick="hideFilter()">
+        <div id='container'></div>
       </div>
     </div>
-    <div id="title">
-      <span>fromis_9 Lives Tracker</span>
-    </div>
-    <div id="filter_container">
-      <div id="filter_members" class="filter_div">
-        <span id="members_prefix"><span data-i18n-key="members">Members</span>:</span>
-        <label>
-          <input type="checkbox" id="saerom_box" name="saerom_box" value="Saerom" class="member_check" onchange="updateChart()" checked>
-          <span data-i18n-key="saerom">Saerom</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="hayoung_box" name="hayoung_box" value="Hayoung" class="member_check" onchange="updateChart()" checked>
-          <span data-i18n-key="hayoung">Hayoung</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="gyuri_box" name="gyuri_box" value="Gyuri" class="member_check" onchange="updateChart()" checked>
-          <span data-i18n-key="gyuri">Gyuri</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="jiwon_box" name="jiwon_box" value="Jiwon" class="member_check" onchange="updateChart()" checked>
-          <span data-i18n-key="jiwon">Jiwon</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="jisun_box" name="jisun_box" value="Jisun" class="member_check" onchange="updateChart()" checked>
-          <span data-i18n-key="jisun">Jisun</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="seoyeon_box" name="seoyeon_box" value="Seoyeon" class="member_check" onchange="updateChart()" checked>
-          <span data-i18n-key="seoyeon">Seoyeon</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="chaeyoung_box" name="chaeyoung_box" value="Chaeyoung" class="member_check" onchange="updateChart()" checked>
-          <span data-i18n-key="chaeyoung">Chaeyoung</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="nagyung_box" name="nagyung_box" value="Nagyung" class="member_check" onchange="updateChart()" checked>
-          <span data-i18n-key="nagyung">Nagyung</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="jiheon_box" name="jiheon_box" value="Jiheon" class="member_check" onchange="updateChart()" checked>
-          <span data-i18n-key="jiheon">Jiheon</span>
-        </label>
-      </div>
-      <div id="filter_float">
-      <div id="filter_membership" class="filter_div">
-        <span data-i18n-key="membership_filter">Subs</span>:
-        <label>
-          <input type="checkbox" id="membership_yes" name="membership_yes_box" value="Yes" class="membership_check" onchange="updateChart()" checked/>
-          <span data-i18n-key="membership_yes">Yes</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="membership_no" name="membership_no_box" value="No" class="membership_check" onchange="updateChart()" checked/>
-          <span data-i18n-key="membership_no">No</span>
-        </label>
-      </div>
-      <div id="filter_subs" class="filter_div">
-        <span data-i18n-key="subs_filter">Subs</span>:
-        <label>
-          <input type="checkbox" id="subs_yes" name="subs_yes_box" value="Yes" class="subs_check" onchange="updateChart()" checked/>
-          <span data-i18n-key="membership_yes">Yes</span>
-        </label>
-        <span class="horizontal_separator"> | </span>
-        <label>
-          <input type="checkbox" id="subs_no" name="subs_no_box" value="No" class="subs_check" onchange="updateChart()" checked/>
-          <span data-i18n-key="membership_no">No</span>
-        </label>
-      </div>
-      </div>
-    </div>
-    <hr class="separator"">
-    <div id="container_chart">
-      <div id="container"></div>
-    </div>
-    <hr id="sep_before_info" class="separator" style="visibility:hidden;">
+
+    <hr id="sep_before_info" class="separator" style="visibility:hidden;" />
     <div id="elem_date"></div>
-    <div id="elem_info_container"></div>
+    <div id="elem_info_container" onclick="hideFilter()"></div>
   </div>
   </div>
-  <div id="footer"><a id="email_link" href= "mailto: fromislivestracker@gmail.com">fromislivestracker@gmail.com</a></div>
+  <div id="footer"><a id="email_link" href="mailto: fromislivestracker@gmail.com">fromislivestracker@gmail.com</a></div>
   <span style="display: none;">헐</span>
   <script src="js/chart.js" defer></script>
   <script src="js/i18.js"></script>
- </body>
-</html>
+</body>
 
+</html>

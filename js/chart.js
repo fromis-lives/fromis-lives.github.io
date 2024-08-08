@@ -30,7 +30,7 @@ function getViewDiv(elemData, divClass) {
         } else {
             text += "<br>";
         }
-        i18key = "field_" + key.replace(/ /g,"_");
+        i18key = "field_" + key.replace(/ /g, "_");
         cKey = key.charAt(0).toUpperCase() + key.slice(1);
         i18val = translateKey(i18key);
         keySpan = '<span data-i18n-key="' + i18key + '">' + i18val + "</span>";
@@ -47,7 +47,7 @@ function getViewDiv(elemData, divClass) {
             hostname = hostname.replace('.com', '');
             hostname = hostname.replace('.io', '');
             hostname = hostname.charAt(0).toUpperCase() + hostname.slice(1);
-            
+
             text += "<a class='out_link' target='_blank' href='" + value + "'>" + hostname + "</a>";
         } else if (key == "members" || key == "people") {
             for (let i = 0; i < value.length; ++i) {
@@ -75,32 +75,32 @@ function buildChart() {
     if (chart) {
         return;
     }
-    
+
     memberToValue = {};
     for (let i = 0; i < memberNames.length; ++i) {
         memberToValue[memberNames[i]] = (1 << i);
     }
     hapbangValue = (1 << (memberNames.length - 1)) + 1;
     multipleValue = hapbangValue + 1;
-    
+
     var rangesArray = [];
     var colorsArray = [];
     for (let i = 0; i < memberNames.length; i++) {
-        rangesArray.push({equal: memberToValue[memberNames[i]]});
+        rangesArray.push({ equal: memberToValue[memberNames[i]] });
     }
-    rangesArray.push({equal: hapbangValue});
-    rangesArray.push({equal: multipleValue});
+    rangesArray.push({ equal: hapbangValue });
+    rangesArray.push({ equal: multipleValue });
     colorsArray = memberColors;
     const customColorScale = anychart.scales.ordinalColor();
     customColorScale.ranges(rangesArray);
     customColorScale.colors(colorsArray);
-    
+
     chart = anychart.calendar();
     chart.contextMenu(false);
     chart.background("#22282D");
     chart.colorScale(customColorScale);
     chart.colorRange(false)
-    
+
     chart.months()
         .stroke("#474747")
         .noDataStroke("#474747");
@@ -111,14 +111,14 @@ function buildChart() {
         .noDataFill("#2d333b")
         .noDataHatchFill(false)
         .hovered()
-            .fill({color: "black", opacity: 0.3})
-            .stroke({color: '#dfdfdf', thickness: 2});
-  
+        .fill({ color: "black", opacity: 0.3 })
+        .stroke({ color: '#dfdfdf', thickness: 2 });
+
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     if (isMobile) {
         chart.tooltip(false);
     } else {
-        chart.tooltip().allowLeaveStage(false).position("left-top").useHtml(true).format(function() {
+        chart.tooltip().allowLeaveStage(false).position("left-top").useHtml(true).format(function () {
             var text = "";
             text += "<div class='info_tooltip'>";
             for (let i = 0; i < this.getData("elems").length; i++) {
@@ -131,8 +131,8 @@ function buildChart() {
             return text;
         });
     }
-    
-    chart.listen("pointClick", function(e) {
+
+    chart.listen("pointClick", function (e) {
         if (selectedPath != null) {
             selectedPath.setAttribute("stroke", "none");
         }
@@ -141,11 +141,11 @@ function buildChart() {
         selectedPath = document.getElementById(elemId);
         selectedPath.setAttribute("stroke", "#dfdfdf");
         selectedPath.setAttribute("stroke-width", "2");
-        
+
         dateString = row['x'];
         var elemDate = document.getElementById("elem_date");
         elemDate.innerHTML = dateString;
-      
+
         const elems = row["elems"];
         var htmlContent = '';
         for (let i = 0; i < elems.length; i++) {
@@ -155,7 +155,7 @@ function buildChart() {
         document.getElementById("elem_info_container").innerHTML = htmlContent;
     });
 
-    chart.listen("chartDraw", function() {
+    chart.listen("chartDraw", function () {
         document.getElementById("container").style.height = (chart.getActualHeight() + 20) + "px";
         credits = document.querySelector(".anychart-credits");
         if (credits) {
@@ -170,17 +170,14 @@ function updateChart() {
         selectedPath.setAttribute("stroke", "none");
         selectedPath = null;
     }
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const includeTwitchData = urlParams.get('dataTwitch');
-    
+
     const memberCheckboxes = document.querySelectorAll('.member_check:checked');
     const selectedMembers = [...memberCheckboxes].map(e => (e.getAttribute('value').toLowerCase()));
     const membershipCheckboxes = document.querySelectorAll('.membership_check:checked');
     const selectedMembership = [...membershipCheckboxes].map(e => (e.getAttribute('value')));
     const subsCheckboxes = document.querySelectorAll('.subs_check:checked');
     const selectedSubs = [...subsCheckboxes].map(e => (e.getAttribute('value')));
-    
+
     var data = [];
     for (const [date, row] of Object.entries(fullData)) {
         var goodElems = row.filter(elem => {
@@ -231,11 +228,11 @@ function updateChart() {
             elems: goodElems,
         });
     }
-    
+
     chart.data(data);
     chart.draw();
-    
-    document.getElementById("elem_date").innerHTML = '';
+
+    const elemDate = document.getElementById("elem_date").innerHTML = '';
     document.getElementById("elem_info_container").innerHTML = '';
     document.getElementById("sep_before_info").style.visibility = 'hidden';
 }
@@ -247,10 +244,20 @@ function modifyBoxIfNeeded(urlParams, field) {
     }
 }
 
+function toggleFilter() {
+    const filterDiv = document.getElementById('filter_container');
+    filterDiv.classList.toggle('hidden');
+}
+
+function hideFilter() {
+    const filterDiv = document.getElementById('filter_container');
+    if (!filterDiv.classList.contains('hidden')) filterDiv.classList.add('hidden');
+}
+
 anychart.onDocumentReady(function () {
     initializeUserLocale();
     document.getElementById("last_updated").innerHTML = updateDate;
-    
+
     const titleLetters = document.querySelectorAll('.title_letter');
     for (let i = 0; i < titleLetters.length; ++i) {
         titleLetters[i].style.setProperty('color', memberColors[i]);
@@ -259,14 +266,16 @@ anychart.onDocumentReady(function () {
     for (let i = 0; i < memberCheckboxes.length; ++i) {
         memberCheckboxes[i].style.setProperty('accent-color', memberColors[i]);
     }
-    
+
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     modifyBoxIfNeeded(urlParams, 'link_public');
     modifyBoxIfNeeded(urlParams, 'link_private');
     modifyBoxIfNeeded(urlParams, 'link_missing');
-    
+
     buildChart();
     updateChart();
     document.getElementsByTagName("html")[0].style.visibility = "visible";
+    const cchart = document.getElementById("container_chart");
+    cchart.classList.add('containerScroll');
 });

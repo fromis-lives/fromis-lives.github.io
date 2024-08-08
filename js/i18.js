@@ -16,7 +16,7 @@ const translations = {
         "nagyung": "Nagyung",
         "jiheon": "Jiheon",
         "all": "All",
-        "hapbang": "Hapbang/ft.",
+        "hapbang": "ft.",
         "multiple": "Multiple",
         "membership_filter": "Membership",
         "membership_yes": "Yes",
@@ -42,6 +42,7 @@ const translations = {
         "twitter": "Twitter",
         "kakaotv": "KakaoTV",
         "showroom": "SHOWROOM",
+        "huyatv": "HUYA TV"
     },
     "kr": {
         "last_updated": "최근 수정일",
@@ -77,7 +78,8 @@ const translations = {
         "facebook": "페이스북",
         "twitter": "트위터",
         "kakaotv": "카카오티비",
-        "showroom": "슈룸"
+        "showroom": "슈룸",
+        "huyatv": "후야티비"
     }
 };
 
