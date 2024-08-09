@@ -118,7 +118,7 @@ function buildChart() {
     if (isMobile) {
         chart.tooltip(false);
     } else {
-        chart.tooltip().allowLeaveStage(false).position("left-top").useHtml(true).format(function () {
+        chart.tooltip().allowLeaveStage(true).position("left-top").useHtml(true).format(function () {
             var text = "";
             text += "<div class='info_tooltip'>";
             for (let i = 0; i < this.getData("elems").length; i++) {

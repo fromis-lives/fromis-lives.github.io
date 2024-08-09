@@ -149,6 +149,7 @@ input {
   min-width: 18em;
   /* for loading images */
   max-width: 20em;
+  z-index: 10;
 }
 
 .fields_container {
