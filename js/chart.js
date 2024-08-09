@@ -152,18 +152,18 @@ function buildChart() {
             htmlContent += getViewDiv(elems[i], "info_elem");
         }
 
-        const elDate = document.getElementById("elem_date");
-        const elDetail = document.getElementById("elem_info_container");
+        const infoPanel = document.getElementById("info-panel");
         const cchart = document.getElementById("container_chart");
 
         document.getElementById("sep_before_info").style.visibility = 'visible';
         document.getElementById("elem_info_container").innerHTML = htmlContent;
-        cchart.classList.toggle('containerScroll');
-        elDate.classList.toggle('hidden');
-        elDetail.classList.toggle('hidden');
-        document.getElementById("info_tooltip").classList.add('zindex-10');
-        chart.tooltip().allowLeaveStage(true);
-        chart.draw();
+
+        if (infoPanel.classList.contains('hidden')) {
+            cchart.classList.toggle('containerScroll');
+            infoPanel.classList.toggle('hidden');
+            chart.tooltip().allowLeaveStage(true);
+            chart.draw();
+        }
     });
 
     chart.listen("chartDraw", function () {
@@ -265,6 +265,16 @@ function hideFilter() {
     if (!filterDiv.classList.contains('hidden')) filterDiv.classList.add('hidden');
 }
 
+function closeInfoPanel() {
+    const elDetail = document.getElementById("info-panel");
+    const cchart = document.getElementById("container_chart");
+
+    elDetail.classList.toggle('hidden');
+    cchart.classList.toggle('containerScroll');
+    chart.tooltip().allowLeaveStage(true);
+    chart.draw();
+}
+
 anychart.onDocumentReady(function () {
     initializeUserLocale();
     document.getElementById("last_updated").innerHTML = updateDate;
@@ -287,18 +297,4 @@ anychart.onDocumentReady(function () {
     buildChart();
     updateChart();
     document.getElementsByTagName("html")[0].style.visibility = "visible";
-
-    const elDetail = document.getElementById("elem_info_container");
-    const cchart = document.getElementById("container_chart");
-
-    elDetail.addEventListener('mouseleave', (e) => {
-        if (!elDetail.classList.contains('hidden')) {
-            elDetail.classList.toggle('hidden');
-            document.getElementById("elem_date").classList.toggle('hidden');
-            cchart.classList.toggle('containerScroll');
-            document.getElementById("info_tooltip").classList.remove('zindex-10');
-            chart.tooltip().allowLeaveStage(true);
-            chart.draw();
-        }
-    });
 });

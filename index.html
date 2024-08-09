@@ -33,8 +33,8 @@
         </div>
       </div>
       <div id="title">
-        <div id="liveFilters" onclick="toggleFilter()"><span>filters</span></div>
-        <div class="center-text"><span>fromis_9 Lives Tracker</span></div>
+        <button id="liveFilters" onclick="toggleFilter()">filters</button>
+        <div class="center-text page-title"><span>fromis_9 Lives Tracker</span></div>
         <div id="filter_container" class="hidden">
           <div id="filter_members" class="filter_div">
             <span id="members_prefix"><span data-i18n-key="members">Members</span>:</span>
@@ -132,8 +132,12 @@
     </div>
 
     <hr id="sep_before_info" class="separator" style="visibility:hidden;" />
-    <div id="elem_date" class="hidden"></div>
-    <div id="elem_info_container" class="hidden" onclick="hideFilter()"></div>
+    <div id="info-panel" class="hidden">
+      <button id="close_info" onclick="closeInfoPanel()">X</button>
+      <div id="elem_date"></div>
+      <div id="elem_info_container" onclick="hideFilter()"></div>
+    </div>
+
   </div>
   </div>
   <div id="footer"><a id="email_link" href="mailto: fromislivestracker@gmail.com">fromislivestracker@gmail.com</a></div>

@@ -54,7 +54,7 @@ html {
 
 /* Title */
 #title {
-  margin-top: 1em;
+  margin: 1em 0 1.5em 0;
   width: 100%;
   color: #dfdfdf;
   font-family: Verdana, Helvetica, Arial, sans-serif;
@@ -75,7 +75,7 @@ html {
   margin-bottom: 0.4em;
   color: #dfdfdf;
   font-family: Verdana, Helvetica, Arial, sans-serif;
-  font-size: 0.95em;
+  font-size: 0.66em;
 }
 
 #filter_container {
@@ -98,6 +98,7 @@ html {
   text-align: left;
   width: auto;
   margin-left: 1em;
+  font-size: 1em;
 }
 
 #filter_subs {
@@ -105,6 +106,7 @@ html {
   text-align: right;
   width: auto;
   margin-right: 1em;
+  font-size: 1em;
 }
 
 input {
@@ -114,6 +116,14 @@ input {
 @media only screen and (max-width: 768px) {
   input {
     transform: scale(1);
+  }
+
+  #filter_membership,
+  #filter_subs {
+    width: 100%;
+    float: none;
+    text-align: left;
+    margin-left: 1em;
   }
 }
 
@@ -160,6 +170,7 @@ input {
 
 .anychart-tooltip {
   position: absolute;
+  z-index: 5;
 }
 
 /* Info details */
@@ -169,11 +180,23 @@ input {
   margin-bottom: 1em;
 }
 
+#close_info {
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 0.7em;
+  background: rgb(255, 255, 255);
+  text-align: center;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bolder;
+  margin-left: 2em;
+}
+
 #elem_date {
   margin-top: 1em;
   margin-bottom: 1em;
-  width: 100%;
-  color: #dfdfdf;
+  display: inline-block;
+  width: calc(100% - 70px);
+  color: #ffffff;
   font-family: Verdana, Helvetica, Arial, sans-serif;
   font-size: 1.2em;
   text-align: center;
@@ -184,7 +207,7 @@ input {
   color: #dfdfdf;
   min-width: 10em;
   max-width: 20em;
-  background-color: #2d333b;
+  background-color: #2d3135;
   border-radius: 0.5em;
   padding: 0.7em 0.7em;
   margin: 0.25em;
@@ -222,34 +245,25 @@ img {
 }
 
 #liveFilters {
-  font-size: 1rem;
-  color: chocolate;
+  font-size: 1.2rem;
+  color: white;
   position: absolute;
   top: 0;
   left: 1em;
-}
-
-@media only screen and (max-width: 768px) {
-  #liveFilters {
-    margin: 0 0 1em 0;
-    position: unset;
-  }
-
-  #filter_membership,
-  #filter_subs {
-    width: 100%;
-    float: none;
-    text-align: left;
-    margin-left: 1em;
-  }
-}
-
-#liveFilters:hover {
+  background-color: rgb(223, 77, 24);
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 0.3em;
   cursor: pointer;
 }
 
 .hidden {
   display: none !important;
+}
+
+.page-title {
+  display: inline-block;
+  width: calc(100% - 70px);
 }
 
 .center-text {
