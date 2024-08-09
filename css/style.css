@@ -273,3 +273,119 @@ img {
 .zindex-10 {
   z-index: 10;
 }
+
+select.data_paging {
+  float: right;
+  margin: 0 3em 1em 0;
+}
+
+.legend_container {
+  margin-top: 3em;
+  color: #dfdfdf;
+  text-align: center;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 0.6em;
+}
+
+.box {
+  position: relative;
+  margin-left: 2em;
+}
+
+.box:before {
+  position: absolute;
+  left: -1.7em;
+  content: "";
+  height: 1.1em;
+  width: 1.1em;
+  margin-bottom: 0.75em;
+  border: 1px solid #474747;
+}
+
+.saerom {
+  --saerom-color: navy;
+}
+
+.saerom:before {
+  background-color: var(--saerom-color);
+}
+
+.hayoung {
+  --hayoung-color: yellow;
+}
+
+.hayoung:before {
+  background-color: var(--hayoung-color);
+}
+
+.jiwon {
+  --jiwon-color: orange;
+}
+
+.jiwon:before {
+  background-color: var(--jiwon-color);
+}
+
+.jisun {
+  --jisun-color: brown;
+}
+
+.jisun:before {
+  background-color: var(--jisun-color);
+}
+
+.chaeyoung {
+  --chaeyoung-color: purple;
+}
+
+.chaeyoung:before {
+  background-color: var(--chaeyoung-color);
+}
+
+.seoyeon {
+  --seoyeon-color: red;
+}
+
+.seoyeon:before {
+  background-color: var(--seoyeon-color);
+}
+
+.nagyung {
+  --nagyung-color: pink;
+}
+
+.nagyung:before {
+  background-color: var(--nagyung-color);
+}
+
+.jiheon {
+  --jiheon-color: aquamarine;
+}
+
+.jiheon:before {
+  background-color: var(--jiheon-color);
+}
+
+.gyuri {
+  --gyuri-color: white;
+}
+
+.gyuri:before {
+  background-color: var(--gyuri-color);
+}
+
+.hapbang {
+  --hapbang-color: goldenrod;
+}
+
+.hapbang:before {
+  background-color: var(--hapbang-color);
+}
+
+.multiple {
+  --multiple-color: fuchsia;
+}
+
+.multiple:before {
+  background-color: var(--multiple-color);
+}

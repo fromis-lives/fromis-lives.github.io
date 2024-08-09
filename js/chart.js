@@ -153,16 +153,11 @@ function buildChart() {
         }
 
         const infoPanel = document.getElementById("info-panel");
-        const cchart = document.getElementById("container_chart");
-
         document.getElementById("sep_before_info").style.visibility = 'visible';
         document.getElementById("elem_info_container").innerHTML = htmlContent;
 
         if (infoPanel.classList.contains('hidden')) {
-            cchart.classList.toggle('containerScroll');
             infoPanel.classList.toggle('hidden');
-            chart.tooltip().allowLeaveStage(true);
-            chart.draw();
         }
     });
 
@@ -176,7 +171,7 @@ function buildChart() {
     chart.container("container");
 }
 
-function updateChart() {
+function updateChart(year = '') {
     if (selectedPath != null) {
         selectedPath.setAttribute("stroke", "none");
         selectedPath = null;
@@ -189,7 +184,7 @@ function updateChart() {
     const subsCheckboxes = document.querySelectorAll('.subs_check:checked');
     const selectedSubs = [...subsCheckboxes].map(e => (e.getAttribute('value')));
 
-    var data = [];
+    let data = [];
     for (const [date, row] of Object.entries(fullData)) {
         var goodElems = row.filter(elem => {
             if (elem["subbed"] == "Yes") {
@@ -240,7 +235,17 @@ function updateChart() {
         });
     }
 
-    chart.data(data);
+    let pagedData = data;
+    if (year != '') {
+        pagedData = data.filter((elem) => {
+            let elYear = Number(elem.x.substring(0, 4));
+            if (elYear == Number(year)) {
+                return elem;
+            }
+        });
+    }
+
+    chart.data(pagedData);
     chart.draw();
 
     document.getElementById("elem_date").innerHTML = '';
@@ -267,12 +272,36 @@ function hideFilter() {
 
 function closeInfoPanel() {
     const elDetail = document.getElementById("info-panel");
-    const cchart = document.getElementById("container_chart");
+    if (!elDetail.classList.contains('hidden')) {
+        elDetail.classList.toggle('hidden');
+    }
+}
 
-    elDetail.classList.toggle('hidden');
-    cchart.classList.toggle('containerScroll');
-    chart.tooltip().allowLeaveStage(true);
-    chart.draw();
+function changeSelect(val) {
+    const elDetail = document.getElementById("info-panel");
+    if (!elDetail.classList.contains('hidden')) {
+        elDetail.classList.add('hidden');
+    }
+    chart.tooltip().allowLeaveStage(!!val);
+    updateChart(val);
+}
+
+function buildYearSelect() {
+    const firstYear = 2017;
+    const currYear = Number(new Date().toISOString().substring(0, 4));
+    const ddown = document.getElementById('data-year');
+
+    for (let i = firstYear; i <= currYear; i++) {
+        let newOption = document.createElement('option');
+        newOption.value = i.toString();
+        newOption.innerText = newOption.value;
+        newOption.textContent = newOption.value;
+        ddown.appendChild(newOption);
+    }
+}
+
+function changeChart(el) {
+    console.log(el);
 }
 
 anychart.onDocumentReady(function () {
@@ -296,5 +325,6 @@ anychart.onDocumentReady(function () {
 
     buildChart();
     updateChart();
+    buildYearSelect();
     document.getElementsByTagName("html")[0].style.visibility = "visible";
 });

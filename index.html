@@ -123,9 +123,26 @@
             </div>
           </div>
         </div>
+        <div class="legend_container">
+          <span class="box saerom" data-i18n-key="saerom">Saerom</span>
+          <span class="box hayoung" data-i18n-key="hayoung">Hayoung</span>
+          <span class="box gyuri" data-i18n-key="gyuri">Gyuri</span>
+          <span class="box jiwon" data-i18n-key="jiwon">Jiwon</span>
+          <span class="box jisun" data-i18n-key="jisun">Jisun</span>
+          <span class="box seoyeon" data-i18n-key="seoyeon">Seoyeon</span>
+          <br />
+          <span class="box chaeyoung" data-i18n-key="chaeyoung">Chaeyoung</span>
+          <span class="box nagyung" data-i18n-key="nagyung">Nagyung</span>
+          <span class="box jiheon" data-i18n-key="jiheon">Jiheon</span>
+          <span class="box hapbang" data-i18n-key="hapbang">Multiple Members</span>
+          <span class="box multiple" data-i18n-key="multiple">Multiple Lives</span>
+        </div>
       </div>
 
       <hr class="separator" />
+      <select name="data-year" id="data-year" class="data_paging" onchange="changeSelect(this.value)">
+        <option value="">SHOW ALL</option>
+      </select>
       <div id='container_chart' onclick="hideFilter()">
         <div id='container'></div>
       </div>
