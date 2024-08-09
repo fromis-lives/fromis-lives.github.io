@@ -43,86 +43,88 @@
         </div><br />
         <button id="liveFilters" onclick="toggleFilter()">filters</button>
         <div id="filter_container" class="hidden">
-          <div id="filter_members" class="filter_div">
-            <span id="members_prefix"><span data-i18n-key="members">Members</span>:</span>
-            <label>
-              <input type="checkbox" id="saerom_box" name="saerom_box" value="Saerom" class="member_check"
-                onchange="updateChart()" checked>
-              <span data-i18n-key="saerom">Saerom</span>
-            </label>
-            <span class="horizontal_separator"> | </span>
-            <label>
-              <input type="checkbox" id="hayoung_box" name="hayoung_box" value="Hayoung" class="member_check"
-                onchange="updateChart()" checked>
-              <span data-i18n-key="hayoung">Hayoung</span>
-            </label>
-            <span class="horizontal_separator"> | </span>
-            <label>
-              <input type="checkbox" id="gyuri_box" name="gyuri_box" value="Gyuri" class="member_check"
-                onchange="updateChart()" checked>
-              <span data-i18n-key="gyuri">Gyuri</span>
-            </label>
-            <span class="horizontal_separator"> | </span>
-            <label>
-              <input type="checkbox" id="jiwon_box" name="jiwon_box" value="Jiwon" class="member_check"
-                onchange="updateChart()" checked>
-              <span data-i18n-key="jiwon">Jiwon</span>
-            </label>
-            <span class="horizontal_separator"> | </span>
-            <label>
-              <input type="checkbox" id="jisun_box" name="jisun_box" value="Jisun" class="member_check"
-                onchange="updateChart()" checked>
-              <span data-i18n-key="jisun">Jisun</span>
-            </label>
-            <span class="horizontal_separator"> | </span>
-            <label>
-              <input type="checkbox" id="seoyeon_box" name="seoyeon_box" value="Seoyeon" class="member_check"
-                onchange="updateChart()" checked>
-              <span data-i18n-key="seoyeon">Seoyeon</span>
-            </label>
-            <span class="horizontal_separator"> | </span>
-            <label>
-              <input type="checkbox" id="chaeyoung_box" name="chaeyoung_box" value="Chaeyoung" class="member_check"
-                onchange="updateChart()" checked>
-              <span data-i18n-key="chaeyoung">Chaeyoung</span>
-            </label>
-            <span class="horizontal_separator"> | </span>
-            <label>
-              <input type="checkbox" id="nagyung_box" name="nagyung_box" value="Nagyung" class="member_check"
-                onchange="updateChart()" checked>
-              <span data-i18n-key="nagyung">Nagyung</span>
-            </label>
-            <span class="horizontal_separator"> | </span>
-            <label>
-              <input type="checkbox" id="jiheon_box" name="jiheon_box" value="Jiheon" class="member_check"
-                onchange="updateChart()" checked>
-              <span data-i18n-key="jiheon">Jiheon</span>
-            </label>
-          </div>
-          <div id="filter_float" class="filter_div">
-            <div id="filter_membership" class="filter_div">
-              <span data-i18n-key="membership_filter">Subs</span>:
+          <div id="filter_members" class="filter_div row">
+            <div class="column-100"><span id="members_prefix"><span data-i18n-key="members">Members</span>:</span></div>
+            <div class="column">
               <label>
+                <input type="checkbox" id="saerom_box" name="saerom_box" value="Saerom" class="member_check"
+                  onchange="updateChart()" checked>
+                <span data-i18n-key="saerom">Saerom</span>
+              </label>
+
+              <label>
+                <input type="checkbox" id="hayoung_box" name="hayoung_box" value="Hayoung" class="member_check"
+                  onchange="updateChart()" checked>
+                <span data-i18n-key="hayoung">Hayoung</span>
+              </label>
+
+              <label>
+                <input type="checkbox" id="gyuri_box" name="gyuri_box" value="Gyuri" class="member_check"
+                  onchange="updateChart()" checked>
+                <span data-i18n-key="gyuri">Gyuri</span>
+              </label>
+            </div>
+            <div class="column">
+              <label>
+                <input type="checkbox" id="jiwon_box" name="jiwon_box" value="Jiwon" class="member_check"
+                  onchange="updateChart()" checked>
+                <span data-i18n-key="jiwon">Jiwon</span>
+              </label>
+
+              <label>
+                <input type="checkbox" id="jisun_box" name="jisun_box" value="Jisun" class="member_check"
+                  onchange="updateChart()" checked>
+                <span data-i18n-key="jisun">Jisun</span>
+              </label>
+
+              <label>
+                <input type="checkbox" id="seoyeon_box" name="seoyeon_box" value="Seoyeon" class="member_check"
+                  onchange="updateChart()" checked>
+                <span data-i18n-key="seoyeon">Seoyeon</span>
+              </label>
+            </div>
+            <div class="column">
+              <label>
+                <input type="checkbox" id="chaeyoung_box" name="chaeyoung_box" value="Chaeyoung" class="member_check"
+                  onchange="updateChart()" checked>
+                <span data-i18n-key="chaeyoung">Chaeyoung</span>
+              </label>
+
+              <label>
+                <input type="checkbox" id="nagyung_box" name="nagyung_box" value="Nagyung" class="member_check"
+                  onchange="updateChart()" checked>
+                <span data-i18n-key="nagyung">Nagyung</span>
+              </label>
+
+              <label>
+                <input type="checkbox" id="jiheon_box" name="jiheon_box" value="Jiheon" class="member_check"
+                  onchange="updateChart()" checked>
+                <span data-i18n-key="jiheon">Jiheon</span>
+              </label>
+            </div>
+          </div>
+          <div id="filter_float" class="filter_div row">
+            <div id="filter_membership" class="column column-50">
+              <span data-i18n-key="membership_filter">Membership</span>:
+              <label class="column-25 column-50 display-inline">
                 <input type="checkbox" id="membership_yes" name="membership_yes_box" value="Yes"
                   class="membership_check" onchange="updateChart()" checked />
                 <span data-i18n-key="membership_yes">Yes</span>
               </label>
-              <span class="horizontal_separator"> | </span>
-              <label>
+              <label class="column-25 column-50 display-inline">
                 <input type="checkbox" id="membership_no" name="membership_no_box" value="No" class="membership_check"
                   onchange="updateChart()" checked />
                 <span data-i18n-key="membership_no">No</span>
               </label>
             </div>
-            <div id="filter_subs" class="filter_div">
+            <div id="filter_subs" class="column column-50">
               <span data-i18n-key="subs_filter">Subs</span>:
-              <label>
+              <label class="column-25 column-50 display-inline">
                 <input type="checkbox" id="subs_yes" name="subs_yes_box" value="Yes" class="subs_check"
                   onchange="updateChart()" checked />
                 <span data-i18n-key="membership_yes">Yes</span>
               </label>
-              <span class="horizontal_separator"> | </span>
-              <label>
+              <label class="column-25 column-50 display-inline">
                 <input type="checkbox" id="subs_no" name="subs_no_box" value="No" class="subs_check"
                   onchange="updateChart()" checked />
                 <span data-i18n-key="membership_no">No</span>
@@ -130,34 +132,39 @@
             </div>
           </div>
         </div>
-        <div class="legend_container">
+      </div>
+
+      <hr class="separator" />
+      <div class="row">
+        <div class="legend_container column-100">
+          <span>Legends:</span>
           <span class="box saerom" data-i18n-key="saerom">Saerom</span>
           <span class="box hayoung" data-i18n-key="hayoung">Hayoung</span>
           <span class="box gyuri" data-i18n-key="gyuri">Gyuri</span>
           <span class="box jiwon" data-i18n-key="jiwon">Jiwon</span>
           <span class="box jisun" data-i18n-key="jisun">Jisun</span>
           <span class="box seoyeon" data-i18n-key="seoyeon">Seoyeon</span>
-          <br />
           <span class="box chaeyoung" data-i18n-key="chaeyoung">Chaeyoung</span>
           <span class="box nagyung" data-i18n-key="nagyung">Nagyung</span>
           <span class="box jiheon" data-i18n-key="jiheon">Jiheon</span>
-          <span class="box hapbang" data-i18n-key="hapbang">Multiple Members</span>
-          <span class="box multiple" data-i18n-key="multiple">Multiple Lives</span>
+          <div class="column-100">
+            <span class="box hapbang" data-i18n-key="hapbang">Multiple Members</span>
+            <span class="box multiple" data-i18n-key="multiple">Multiple Lives</span>
+          </div>
         </div>
-      </div>
-
-      <hr class="separator" />
-      <select name="data-year" id="data-year" class="data_paging" onchange="changeSelect(this.value)">
-        <option value="">SHOW ALL</option>
-      </select>
-      <div id='container_chart' onclick="hideFilter()">
-        <div id='container'></div>
+        <div class="column-100">
+          <select name="data-year" id="data-year" class="data_paging" onchange="changeSelect(this.value)">
+            <option value="">SHOW ALL</option>
+          </select>
+        </div>
+        <div id='container_chart' class="column-100" onclick="hideFilter()">
+          <div id='container'></div>
+        </div>
       </div>
     </div>
 
     <hr id="sep_before_info" class="separator" style="visibility:hidden;" />
-    <div id="info-panel" class="hidden">
-      <button id="close_info" onclick="closeInfoPanel()">X</button>
+    <div id="info-panel" class="hidden column-100">
       <div id="elem_date"></div>
       <div id="elem_info_container" onclick="hideFilter()"></div>
     </div>

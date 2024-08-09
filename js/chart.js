@@ -1,5 +1,5 @@
 const memberNames = ["saerom", "hayoung", "gyuri", "jiwon", "jisun", "seoyeon", "chaeyoung", "nagyung", "jiheon"];
-const memberColors = ["navy", "yellow", "white", "orange", "brown", "red", "purple", "pink", "aquamarine", "goldenrod", "fuchsia"];
+const memberColors = ["#3288bd", "yellow", "#ada99e", "#fdae61", "#e6f598", "#66c2a5", "purple", "brown", "#d53e4f", "goldenrod", "#5e4fa2"];
 
 var chart = null;
 var selectedPath = null;
