@@ -42,7 +42,10 @@ const translations = {
         "twitter": "Twitter",
         "kakaotv": "KakaoTV",
         "showroom": "SHOWROOM",
-        "huyatv": "HUYA TV"
+        "huyatv": "HUYA TV",
+        "huya tv": "HUYA TV",
+        "hybe labels": "HYBE LABELS",
+        "weekly idol": "Weekly Idol"
     },
     "kr": {
         "last_updated": "최근 수정일",
@@ -79,7 +82,10 @@ const translations = {
         "twitter": "트위터",
         "kakaotv": "카카오티비",
         "showroom": "슈룸",
-        "huyatv": "후야티비"
+        "huyatv": "후야티비",
+        "huya tv": "후야티비",
+        "hybe labels": "HYBE LABELS",
+        "weekly idol": "주간 아이돌"
     }
 };
 
