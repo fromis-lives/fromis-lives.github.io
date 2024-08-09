@@ -144,12 +144,11 @@ input {
   padding: 0;
 }
 
-.info_tooltip {
+#info_tooltip {
   text-align: left;
   min-width: 18em;
   /* for loading images */
   max-width: 20em;
-  z-index: 10;
 }
 
 .fields_container {
@@ -255,4 +254,8 @@ img {
 
 .center-text {
   text-align: center;
+}
+
+.zindex-10 {
+  z-index: 10;
 }

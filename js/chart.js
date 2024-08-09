@@ -118,9 +118,9 @@ function buildChart() {
     if (isMobile) {
         chart.tooltip(false);
     } else {
-        chart.tooltip().allowLeaveStage(true).position("left-top").useHtml(true).format(function () {
+        chart.tooltip().allowLeaveStage(false).position("left-top").useHtml(true).format(function () {
             var text = "";
-            text += "<div class='info_tooltip'>";
+            text += "<div id='info_tooltip'>";
             for (let i = 0; i < this.getData("elems").length; i++) {
                 if (i > 0) {
                     text += "<hr noshade='true' class='anychart-tooltip-separator'>"
@@ -151,8 +151,19 @@ function buildChart() {
         for (let i = 0; i < elems.length; i++) {
             htmlContent += getViewDiv(elems[i], "info_elem");
         }
+
+        const elDate = document.getElementById("elem_date");
+        const elDetail = document.getElementById("elem_info_container");
+        const cchart = document.getElementById("container_chart");
+
         document.getElementById("sep_before_info").style.visibility = 'visible';
         document.getElementById("elem_info_container").innerHTML = htmlContent;
+        cchart.classList.toggle('containerScroll');
+        elDate.classList.toggle('hidden');
+        elDetail.classList.toggle('hidden');
+        document.getElementById("info_tooltip").classList.add('zindex-10');
+        chart.tooltip().allowLeaveStage(true);
+        chart.draw();
     });
 
     chart.listen("chartDraw", function () {
@@ -232,7 +243,7 @@ function updateChart() {
     chart.data(data);
     chart.draw();
 
-    const elemDate = document.getElementById("elem_date").innerHTML = '';
+    document.getElementById("elem_date").innerHTML = '';
     document.getElementById("elem_info_container").innerHTML = '';
     document.getElementById("sep_before_info").style.visibility = 'hidden';
 }
@@ -276,6 +287,18 @@ anychart.onDocumentReady(function () {
     buildChart();
     updateChart();
     document.getElementsByTagName("html")[0].style.visibility = "visible";
+
+    const elDetail = document.getElementById("elem_info_container");
     const cchart = document.getElementById("container_chart");
-    cchart.classList.add('containerScroll');
+
+    elDetail.addEventListener('mouseleave', (e) => {
+        if (!elDetail.classList.contains('hidden')) {
+            elDetail.classList.toggle('hidden');
+            document.getElementById("elem_date").classList.toggle('hidden');
+            cchart.classList.toggle('containerScroll');
+            document.getElementById("info_tooltip").classList.remove('zindex-10');
+            chart.tooltip().allowLeaveStage(true);
+            chart.draw();
+        }
+    });
 });
