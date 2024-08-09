@@ -6,7 +6,7 @@
   <link href="https://cdn.anychart.com/releases/v8/css/anychart-ui.min.css" type="text/css" rel="stylesheet">
   <link href="https://cdn.anychart.com/releases/v8/fonts/css/anychart-font.min.css" type="text/css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="logo.png">
   <title>fromis_9 Lives</title>
   <script
     src="https://cdn.anychart.com/releases/8.12.1/js/anychart-base.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
@@ -22,19 +22,26 @@
 <body>
   <div id="body_container">
     <div id="main_container">
-      <div id="header_container">
-        <div id="change_lang_div">
+      <div id="header_container" class="row">
+        <div id="change_lang_div" class="column">
           <span id="lang_select_kr" onclick="changeLocale('kr')">KR</span>
           <span> / </span>
           <span id="lang_select_en" onclick="changeLocale('en')">EN</span>
         </div>
-        <div id="last_updated_div">
-          <span data-i18n-key="last_updated">Last updated</span><span>: </span><span id="last_updated"></span>
+        <div id="disclaimer_div" class="column">
+          <span>Best viewed on desktop browser</span>
+        </div>
+        <div id="last_updated_div" class="column">
+          <span data-i18n-key="last_updated">Last updated</span>: <span id="last_updated"></span>
         </div>
       </div>
       <div id="title">
+        <div class="center-text page-title">
+          <h1>fromis_9 Lives Tracker</h1>
+          <span>fromis_9 lives from Facebook, VLIVE, and Weverse</span><br />
+          <span>Includes links to raw videos and ENG subbed videos if available</span>
+        </div><br />
         <button id="liveFilters" onclick="toggleFilter()">filters</button>
-        <div class="center-text page-title"><span>fromis_9 Lives Tracker</span></div>
         <div id="filter_container" class="hidden">
           <div id="filter_members" class="filter_div">
             <span id="members_prefix"><span data-i18n-key="members">Members</span>:</span>
@@ -158,7 +165,7 @@
   </div>
   </div>
   <div id="footer"><a id="email_link" href="mailto: fromislivestracker@gmail.com">fromislivestracker@gmail.com</a></div>
-  <span style="display: none;">헐</span>
+  <span class="hidden">헐</span>
   <script src="js/chart.js" defer></script>
   <script src="js/i18.js"></script>
 </body>
