@@ -43,9 +43,38 @@
         </div><br />
         <button id="liveFilters" onclick="toggleFilter()">filters</button>
         <div id="filter_container" class="hidden">
+          <div id="filter_float" class="filter_div row">
+            <div id="filter_membership" class="column column-50">
+              <span data-i18n-key="membership_filter" class="column">Membership</span>:
+              <label class="column column-50 display-inline">
+                <input type="checkbox" id="membership_yes" name="membership_yes_box" value="Yes"
+                  class="membership_check" onchange="updateChart()" checked />
+                <span data-i18n-key="membership_yes">Yes</span>
+              </label>
+              <label class="column column-50 display-inline">
+                <input type="checkbox" id="membership_no" name="membership_no_box" value="No" class="membership_check"
+                  onchange="updateChart()" checked />
+                <span data-i18n-key="membership_no">No</span>
+              </label>
+            </div>
+            <div id="filter_subs" class="column column-50">
+              <span data-i18n-key="subs_filter">Subs</span>:
+              <label class="column-25 column-50 display-inline">
+                <input type="checkbox" id="subs_yes" name="subs_yes_box" value="Yes" class="subs_check"
+                  onchange="updateChart()" checked />
+                <span data-i18n-key="membership_yes">Yes</span>
+              </label>
+              <label class="column-25 column-50 display-inline">
+                <input type="checkbox" id="subs_no" name="subs_no_box" value="No" class="subs_check"
+                  onchange="updateChart()" checked />
+                <span data-i18n-key="membership_no">No</span>
+              </label>
+            </div>
+          </div>
           <div id="filter_members" class="filter_div row">
-            <div class="column-100"><span id="members_prefix"><span data-i18n-key="members">Members</span>:</span></div>
-            <div class="column">
+            <div class="column-100">
+              <div class="display-inline"><span id="members_prefix"><span data-i18n-key="members">Members</span>:</span>
+              </div>
               <label>
                 <input type="checkbox" id="saerom_box" name="saerom_box" value="Saerom" class="member_check"
                   onchange="updateChart()" checked>
@@ -63,8 +92,7 @@
                   onchange="updateChart()" checked>
                 <span data-i18n-key="gyuri">Gyuri</span>
               </label>
-            </div>
-            <div class="column">
+
               <label>
                 <input type="checkbox" id="jiwon_box" name="jiwon_box" value="Jiwon" class="member_check"
                   onchange="updateChart()" checked>
@@ -82,8 +110,7 @@
                   onchange="updateChart()" checked>
                 <span data-i18n-key="seoyeon">Seoyeon</span>
               </label>
-            </div>
-            <div class="column">
+
               <label>
                 <input type="checkbox" id="chaeyoung_box" name="chaeyoung_box" value="Chaeyoung" class="member_check"
                   onchange="updateChart()" checked>
@@ -100,34 +127,6 @@
                 <input type="checkbox" id="jiheon_box" name="jiheon_box" value="Jiheon" class="member_check"
                   onchange="updateChart()" checked>
                 <span data-i18n-key="jiheon">Jiheon</span>
-              </label>
-            </div>
-          </div>
-          <div id="filter_float" class="filter_div row">
-            <div id="filter_membership" class="column column-50">
-              <span data-i18n-key="membership_filter">Membership</span>:
-              <label class="column-25 column-50 display-inline">
-                <input type="checkbox" id="membership_yes" name="membership_yes_box" value="Yes"
-                  class="membership_check" onchange="updateChart()" checked />
-                <span data-i18n-key="membership_yes">Yes</span>
-              </label>
-              <label class="column-25 column-50 display-inline">
-                <input type="checkbox" id="membership_no" name="membership_no_box" value="No" class="membership_check"
-                  onchange="updateChart()" checked />
-                <span data-i18n-key="membership_no">No</span>
-              </label>
-            </div>
-            <div id="filter_subs" class="column column-50">
-              <span data-i18n-key="subs_filter">Subs</span>:
-              <label class="column-25 column-50 display-inline">
-                <input type="checkbox" id="subs_yes" name="subs_yes_box" value="Yes" class="subs_check"
-                  onchange="updateChart()" checked />
-                <span data-i18n-key="membership_yes">Yes</span>
-              </label>
-              <label class="column-25 column-50 display-inline">
-                <input type="checkbox" id="subs_no" name="subs_no_box" value="No" class="subs_check"
-                  onchange="updateChart()" checked />
-                <span data-i18n-key="membership_no">No</span>
               </label>
             </div>
           </div>
