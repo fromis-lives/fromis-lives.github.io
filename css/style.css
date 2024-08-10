@@ -378,8 +378,11 @@ select.data_paging {
 
   .row>.column,
   .row>.column-10,
+  .row>.column-20,
   .row>.column-25,
-  .row>.column-50 {
+  .row>.column-50,
+  #filter_float>.column-20,
+  #filter_float>.column-25 {
     flex: 0 0 100%;
     max-width: 100%;
     text-align: center;
@@ -403,8 +406,8 @@ select.data_paging {
 
   #header_container>.column,
   .row>.column {
-    flex: 0 0 30%;
-    max-width: 30%;
+    flex: 0 0 32%;
+    max-width: 32%;
   }
 
   .column>label {
@@ -416,9 +419,25 @@ select.data_paging {
     max-width: 40%;
   }
 
-  .row>.column-10 {
+  .column-25 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .column-20 {
     flex: 0 0 20%;
     max-width: 20%;
+  }
+
+  .row>.column-10 {
+    flex: 0 0 10%;
+    max-width: 10%;
+  }
+
+  #filter_float>.column-20,
+  #filter_float>.column-25 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 
   #title {
@@ -442,6 +461,10 @@ select.data_paging {
   #last_updated_div.column {
     text-align: right;
   }
+
+  .page-title h1 {
+    font-size: 1.5em;
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -457,9 +480,33 @@ select.data_paging {
     max-width: 42%;
   }
 
+  .column-25 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .column-20 {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+
+  #filter_float>.column-25 {
+    flex: 0 0 30%;
+    max-width: 30%;
+  }
+
+  #filter_float>.column-20 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
   .row>.column-10 {
-    flex: 0 0 15%;
-    max-width: 15%;
+    flex: 0 0 10%;
+    max-width: 10%;
+  }
+
+  .page-title h1 {
+    font-size: 1.7em;
   }
 }
 
@@ -476,13 +523,8 @@ select.data_paging {
     max-width: 44%;
   }
 
-  .column-25 {
+  #filter_float>.column-25 {
     flex: 0 0 25%;
     max-width: 25%;
-  }
-
-  .row>.column-10 {
-    flex: 0 0 10%;
-    max-width: 10%;
   }
 }
