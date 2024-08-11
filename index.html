@@ -40,6 +40,7 @@
           <h1>fromis_9 Lives Tracker</h1>
           <span>fromis_9 lives from Facebook, VLIVE, and Weverse</span>
           <span>Includes links to raw videos and ENG subbed videos if available</span>
+          <span>Click tile for video details at the bottom of the page</span>
         </div><br />
         <button id="liveFilters" onclick="toggleFilter()">filters</button>
         <div id="filter_container" class="hidden">
@@ -151,7 +152,8 @@
             <span class="box multiple" data-i18n-key="multiple">Multiple Lives</span>
           </div>
         </div>
-        <div class="column-100">
+        <div id="select-div" class="column-100">
+          <span>Show by year:</span>
           <select name="data-year" id="data-year" class="data_paging" onchange="changeSelect(this.value)">
             <option value="">SHOW ALL</option>
           </select>
