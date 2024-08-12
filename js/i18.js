@@ -45,7 +45,9 @@ const translations = {
         "huyatv": "HUYA TV",
         "huya tv": "HUYA TV",
         "hybe labels": "HYBE LABELS",
-        "weekly idol": "Weekly Idol"
+        "weekly idol": "Weekly Idol",
+        "navernow": "Naver NOW",
+        "radio": "Radio",
     },
     "kr": {
         "last_updated": "최근 수정일",
@@ -81,11 +83,13 @@ const translations = {
         "facebook": "페이스북",
         "twitter": "트위터",
         "kakaotv": "카카오티비",
-        "showroom": "슈룸",
+        "showroom": "쇼룸",
         "huyatv": "후야티비",
         "huya tv": "후야티비",
         "hybe labels": "HYBE LABELS",
-        "weekly idol": "주간 아이돌"
+        "weekly idol": "주간 아이돌",
+        "navernow": "네이버 NOW",
+        "radio": "라디오",
     }
 };
 
