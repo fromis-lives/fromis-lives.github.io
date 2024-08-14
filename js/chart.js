@@ -133,10 +133,14 @@ function buildChart() {
     }
 
     chart.listen("pointClick", function (e) {
+        const row = chart.data().row(e.dataIndex);
+        if (!row) {
+            // Weird but happens
+            return;
+        }
         if (selectedPath != null) {
             selectedPath.setAttribute("stroke", "none");
         }
-        const row = chart.data().row(e.dataIndex);
         const elemId = e.originalEvent.getOriginalEvent().target.he
         selectedPath = document.getElementById(elemId);
         selectedPath.setAttribute("stroke", "#dfdfdf");
